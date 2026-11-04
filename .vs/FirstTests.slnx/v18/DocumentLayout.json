@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\FirstTests\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AF2E29B1-7341-447A-96E1-6A98AA3F01AF}|FirstTests\\FirstTests.csproj|c:\\users\\admin\\source\\repos\\firsttests\\firsttests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF2E29B1-7341-447A-96E1-6A98AA3F01AF}|FirstTests\\FirstTests.csproj|solutionrelative:firsttests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 405,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\FirstTests\\FirstTests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "FirstTests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\FirstTests\\FirstTests\\UnitTest1.cs",
+              "RelativeToolTip": "FirstTests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T05:05:52.731Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
