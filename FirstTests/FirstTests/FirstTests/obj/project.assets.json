@@ -1728,11 +1728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\FirstTests.csproj",
+      "projectUniqueName": "C:\\Users\\WibuCTer\\Documents\\SOF3091\\FirstTests\\FirstTests\\FirstTests\\FirstTests.csproj",
       "projectName": "FirstTests",
-      "projectPath": "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\FirstTests.csproj",
+      "projectPath": "C:\\Users\\WibuCTer\\Documents\\SOF3091\\FirstTests\\FirstTests\\FirstTests\\FirstTests.csproj",
       "packagesPath": "C:\\Users\\WibuCTer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\obj\\",
+      "outputPath": "C:\\Users\\WibuCTer\\Documents\\SOF3091\\FirstTests\\FirstTests\\FirstTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

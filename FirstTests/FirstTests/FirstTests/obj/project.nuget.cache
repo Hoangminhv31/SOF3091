@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vD3WzprGcnk=",
+  "dgSpecHash": "73Aj5SdwrRo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\FirstTests.csproj",
+  "projectFilePath": "C:\\Users\\WibuCTer\\Documents\\SOF3091\\FirstTests\\FirstTests\\FirstTests\\FirstTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WibuCTer\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
     "C:\\Users\\WibuCTer\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",
