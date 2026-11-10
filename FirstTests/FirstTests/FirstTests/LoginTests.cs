@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -79,11 +80,34 @@ namespace FirstTests
             Assert.That(names, Does.Contain("Sauce Labs Backpack"), "Thiếu sản phẩm Sauce Labs Backpack");
         }
 
+
+        [Test]
+        [Explicit]
+        public void Test_Teardown()
+        {
+            Assert.Fail("Test fail de kiem tra chup anh.");
+        }
+
         [TearDown]
         public void Teardown()
         {
-            // Đóng trình duyệt sau mỗi ca test
-            if (driver != null)
+            if (driver == null) return;
+
+            try
+            {
+                if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+                {
+                    string folder = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "screenshots"));
+                    Directory.CreateDirectory(folder);
+
+                    string fileName = TestContext.CurrentContext.Test.Name + ".png";
+                    string path = Path.Combine(folder, fileName);
+
+                    ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(path);
+                    TestContext.AddTestAttachment(path);
+                }
+            }
+            finally
             {
                 driver.Quit();
                 driver.Dispose();

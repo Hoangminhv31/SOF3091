@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WibuCTer\\Downloads\\AyuGram Desktop\\FirstTests\\FirstTests\\FirstTests.csproj": {}
+    "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\FirstTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WibuCTer\\Downloads\\AyuGram Desktop\\FirstTests\\FirstTests\\FirstTests.csproj": {
+    "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\FirstTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WibuCTer\\Downloads\\AyuGram Desktop\\FirstTests\\FirstTests\\FirstTests.csproj",
+        "projectUniqueName": "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\FirstTests.csproj",
         "projectName": "FirstTests",
-        "projectPath": "C:\\Users\\WibuCTer\\Downloads\\AyuGram Desktop\\FirstTests\\FirstTests\\FirstTests.csproj",
+        "projectPath": "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\FirstTests.csproj",
         "packagesPath": "C:\\Users\\WibuCTer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WibuCTer\\Downloads\\AyuGram Desktop\\FirstTests\\FirstTests\\obj\\",
+        "outputPath": "C:\\Users\\WibuCTer\\Downloads\\FirstTests_PhanD\\FirstTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

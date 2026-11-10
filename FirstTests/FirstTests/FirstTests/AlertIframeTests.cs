@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -110,9 +111,27 @@ namespace FirstTests
         [TearDown]
         public void Teardown()
         {
-            // Đóng trình duyệt sau mỗi ca test
-            driver.Quit();
-            driver.Dispose();
+            if (driver == null) return;
+
+            try
+            {
+                if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+                {
+                    string folder = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "screenshots"));
+                    Directory.CreateDirectory(folder);
+
+                    string fileName = TestContext.CurrentContext.Test.Name + ".png";
+                    string path = Path.Combine(folder, fileName);
+
+                    ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(path);
+                    TestContext.AddTestAttachment(path);
+                }
+            }
+            finally
+            {
+                driver.Quit();
+                driver.Dispose();
+            }
         }
     }
 }
