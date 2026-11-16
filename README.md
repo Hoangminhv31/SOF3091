@@ -1,4 +1,4 @@
-# SOF3091 - Feature Branch
+# SOF3091 - Conflict Demo Branch
 
 ![CI](https://github.com/Hoangminhv31/SOF3091/actions/workflows/tests.yml/badge.svg)
 
