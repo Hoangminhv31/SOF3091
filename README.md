@@ -1,4 +1,4 @@
-# SOF3091 - Automation Testing (.NET)
+# SOF3091 - Master Branch
 
 ![CI](https://github.com/Hoangminhv31/SOF3091/actions/workflows/tests.yml/badge.svg)
 
