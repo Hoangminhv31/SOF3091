@@ -6,7 +6,6 @@ public class InventoryPage : BasePage
 {
     private static readonly By _title = By.ClassName("title");
     private static readonly By _addBackpack = By.Id("add-to-cart-sauce-labs-backpack");
-    private static readonly By _removeBackpack = By.Id("remove-sauce-labs-backpack");
     private static readonly By _cartBadge = By.ClassName("shopping_cart_badge");
     private static readonly By _cartLink = By.ClassName("shopping_cart_link");
 
@@ -17,7 +16,6 @@ public class InventoryPage : BasePage
     public InventoryPage AddBackpackToCart()
     {
         Click(_addBackpack);
-        WaitForVisible(_removeBackpack);
         WaitForText(_cartBadge, "1");
         return this;
     }
