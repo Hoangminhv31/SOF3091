@@ -1,4 +1,8 @@
+hotfix/conflict-demo
+# SOF3091 - Conflict Demo Branch
+
 # SOF3091 - Master Update
+master
 
 ![CI](https://github.com/Hoangminhv31/SOF3091/actions/workflows/tests.yml/badge.svg)
 
