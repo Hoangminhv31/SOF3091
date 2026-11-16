@@ -1,5 +1,6 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SauceDemo.Tests.Config;
 
 namespace SauceDemo.Tests.Pages;
 
