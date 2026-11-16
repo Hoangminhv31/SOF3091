@@ -4,7 +4,7 @@ namespace SauceDemo.Tests.Pages;
 
 public class CheckoutPage : BasePage
 {
-    private static readonly By _firstName = By.Id("first-name");
+    private readonly By _firstName = By.Id("first-name");
     private static readonly By _lastName = By.Id("last-name");
     private static readonly By _zip = By.Id("postal-code");
     private static readonly By _continue = By.Id("continue");
