@@ -1,4 +1,4 @@
-# SOF3091 - Master Branch
+# SOF3091 - Master Update
 
 ![CI](https://github.com/Hoangminhv31/SOF3091/actions/workflows/tests.yml/badge.svg)
 
