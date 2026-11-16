@@ -1,6 +1,5 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SauceDemo.Tests.Config;
 
 namespace SauceDemo.Tests.Pages;
 
@@ -24,7 +23,29 @@ public abstract class BasePage
             return el.Displayed ? el : null;
         });
 
-    protected void Click(By locator) => WaitForVisible(locator).Click();
+    protected void WaitForUrlContains(string value)
+    {
+        _wait.Until(d => d.Url.Contains(value, StringComparison.OrdinalIgnoreCase));
+    }
+
+    protected void WaitForText(By locator, string expectedText)
+    {
+        _wait.Until(d =>
+        {
+            var elements = d.FindElements(locator);
+            return elements.Any(el => el.Displayed && el.Text.Trim() == expectedText);
+        });
+    }
+
+    protected void Click(By locator)
+    {
+        var element = _wait.Until(d =>
+        {
+            var el = d.FindElement(locator);
+            return el.Displayed && el.Enabled ? el : null;
+        });
+        element.Click();
+    }
 
     protected void Type(By locator, string text)
     {
