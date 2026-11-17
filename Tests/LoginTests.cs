@@ -1,26 +1,25 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using SauceDemo.Tests.Pages;
 
 namespace SauceDemo.Tests.Tests;
 
 public class LoginTests : BaseTest
 {
-    [Test]
-    public void Login_ValidUser_OpensInventory()
+    [TestCaseSource(typeof(LoginTestData), nameof(LoginTestData.GetCases))]
+    public void Login_DataDriven(string username, string password,
+        bool shouldLogin, string expectedError)
     {
-        var inventory = new LoginPage(Driver).Open()
-            .LoginAs("standard_user", "secret_sauce");
+        var loginPage = new LoginPage(Driver).Open(Settings.Url);
 
-        Assert.That(inventory.IsLoaded(), Is.True);
-    }
-
-    [Test]
-    public void Login_LockedUser_ShowsError()
-    {
-        var error = new LoginPage(Driver).Open()
-            .LoginExpectingError("locked_out_user", "secret_sauce")
-            .GetErrorMessage();
-
-        Assert.That(error, Does.Contain("locked out"));
+        if (shouldLogin)
+        {
+            var inventory = loginPage.LoginAs(username, password);
+            Assert.That(inventory.IsLoaded(), Is.True);
+        }
+        else
+        {
+            var error = loginPage.LoginExpectingError(username, password).GetErrorMessage();
+            Assert.That(error, Does.Contain(expectedError));
+        }
     }
 }

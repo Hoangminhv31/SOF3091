@@ -24,3 +24,8 @@ Mở terminal và chạy các lệnh sau:
     dotnet test
 
 *Lưu ý: Để chạy test trên môi trường không có giao diện (CI), set biến môi trường `HEADLESS=true`.*
+
+## Y5
+- `appsettings.json`: cấu hình URL, trình duyệt, timeout và chế độ headless.
+- Có thể thay đổi `Url`, `Browser`, `Timeout`, `Headless` trong `appsettings.json`.
+

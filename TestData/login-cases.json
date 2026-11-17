@@ -1,0 +1,44 @@
+[
+  {
+    "Name": "Valid user",
+    "Username": "standard_user",
+    "Password": "secret_sauce",
+    "ShouldLogin": true,
+    "ExpectedError": ""
+  },
+  {
+    "Name": "Problem user",
+    "Username": "problem_user",
+    "Password": "secret_sauce",
+    "ShouldLogin": true,
+    "ExpectedError": ""
+  },
+  {
+    "Name": "Performance glitch user",
+    "Username": "performance_glitch_user",
+    "Password": "secret_sauce",
+    "ShouldLogin": true,
+    "ExpectedError": ""
+  },
+  {
+    "Name": "Locked user",
+    "Username": "locked_out_user",
+    "Password": "secret_sauce",
+    "ShouldLogin": false,
+    "ExpectedError": "locked out"
+  },
+  {
+    "Name": "Wrong password",
+    "Username": "standard_user",
+    "Password": "wrong_password",
+    "ShouldLogin": false,
+    "ExpectedError": "Username and password do not match"
+  },
+  {
+    "Name": "Empty username",
+    "Username": "",
+    "Password": "secret_sauce",
+    "ShouldLogin": false,
+    "ExpectedError": "Username is required"
+  }
+]

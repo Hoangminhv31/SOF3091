@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 
 namespace SauceDemo.Tests.Pages;
 
@@ -11,9 +11,9 @@ public class LoginPage : BasePage
 
     public LoginPage(IWebDriver driver) : base(driver) { }
 
-    public LoginPage Open()
+    public LoginPage Open(string url = "https://www.saucedemo.com/")
     {
-        Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+        Driver.Navigate().GoToUrl(url);
         return this;
     }
 

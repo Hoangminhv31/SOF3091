@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 
 namespace SauceDemo.Tests.Pages;
 
@@ -16,6 +16,7 @@ public class InventoryPage : BasePage
     public InventoryPage AddBackpackToCart()
     {
         Click(_addBackpack);
+        WaitForText(_cartBadge, "1");
         return this;
     }
 
@@ -24,6 +25,7 @@ public class InventoryPage : BasePage
     public CartPage GoToCart()
     {
         Click(_cartLink);
+        WaitForUrlContains("/cart.html");
         return new CartPage(Driver);
     }
 }
