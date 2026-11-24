@@ -1,0 +1,38 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\Lab5_BvaE_tb01995\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{412F5BB9-9019-7485-58A7-05D6ECF65ADC}|Lab5_BvaE_tb01995\\Lab5_BvaE_tb01995.csproj|c:\\users\\admin\\source\\repos\\lab5_bvae_tb01995\\lab5_bvae_tb01995\\tests\\sorttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412F5BB9-9019-7485-58A7-05D6ECF65ADC}|Lab5_BvaE_tb01995\\Lab5_BvaE_tb01995.csproj|solutionrelative:lab5_bvae_tb01995\\tests\\sorttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 405,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SortTests.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\Lab5_BvaE_tb01995\\Lab5_BvaE_tb01995\\Tests\\SortTests.cs",
+              "RelativeDocumentMoniker": "Lab5_BvaE_tb01995\\Tests\\SortTests.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\Lab5_BvaE_tb01995\\Lab5_BvaE_tb01995\\Tests\\SortTests.cs",
+              "RelativeToolTip": "Lab5_BvaE_tb01995\\Tests\\SortTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T08:14:49.922Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
