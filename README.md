@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# Lab 5 — OOP trong kiểm thử & Page Object Model
+
+# Lab 4 — OOP trong kiểm thử & Page Object Model
 
 ## Phần E — Thẩm định AI
 
