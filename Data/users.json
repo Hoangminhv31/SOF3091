@@ -1,0 +1,98 @@
+[
+  {
+    "Username": "standard_user",
+    "Password": "secret_sauce",
+    "ThanhCong": true,
+    "GhiChu": "Luồng thuận: tài khoản chuẩn"
+  },
+  {
+    "Username": "problem_user",
+    "Password": "secret_sauce",
+    "ThanhCong": true,
+    "GhiChu": "Luồng thuận: vào được dù ảnh sản phẩm hỏng"
+  },
+  {
+    "Username": "error_user",
+    "Password": "secret_sauce",
+    "ThanhCong": true,
+    "GhiChu": "Luồng thuận: vào được trang sản phẩm (lỗi nằm ở bước sau)"
+  },
+  {
+    "Username": "visual_user",
+    "Password": "secret_sauce",
+    "ThanhCong": true,
+    "GhiChu": "Luồng thuận: vào được dù giao diện lệch"
+  },
+  {
+    "Username": "locked_out_user",
+    "Password": "secret_sauce",
+    "ThanhCong": false,
+    "GhiChu": "Luồng nghịch: tài khoản bị khóa"
+  },
+  {
+    "Username": "standard_user",
+    "Password": "wrong_password",
+    "ThanhCong": false,
+    "GhiChu": "Luồng nghịch: đúng tài khoản, sai mật khẩu"
+  },
+  {
+    "Username": "khong_ton_tai",
+    "Password": "sai_mat_khau",
+    "ThanhCong": false,
+    "GhiChu": "Luồng nghịch: tài khoản không tồn tại"
+  },
+  {
+    "Username": "",
+    "Password": "secret_sauce",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: bỏ trống Username"
+  },
+  {
+    "Username": "standard_user",
+    "Password": "",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: bỏ trống Password"
+  },
+  {
+    "Username": "",
+    "Password": "",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: bỏ trống cả hai ô"
+  },
+  {
+    "Username": "   ",
+    "Password": "secret_sauce",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: Username chỉ toàn khoảng trắng"
+  },
+  {
+    "Username": "standard_user ",
+    "Password": "secret_sauce",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: thừa khoảng trắng cuối Username (saucedemo không tự trim)"
+  },
+  {
+    "Username": "STANDARD_USER",
+    "Password": "secret_sauce",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: sai hoa/thường (Username phân biệt hoa thường)"
+  },
+  {
+    "Username": "' OR '1'='1",
+    "Password": "' OR '1'='1",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: chuỗi kiểu SQL injection"
+  },
+  {
+    "Username": "<script>alert(1)</script>",
+    "Password": "secret_sauce",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: ký tự đặc biệt / thẻ HTML"
+  },
+  {
+    "Username": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "Password": "secret_sauce",
+    "ThanhCong": false,
+    "GhiChu": "Ca biên: Username rất dài (256 ký tự)"
+  }
+]
