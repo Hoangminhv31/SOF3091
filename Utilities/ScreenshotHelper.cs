@@ -10,14 +10,18 @@ public static class ScreenshotHelper
 
         try
         {
-            var ctx    = TestContext.CurrentContext;
-            var thuMuc = Path.Combine(ctx.WorkDirectory, "screenshots");
+            var ctx = TestContext.CurrentContext;
+            DirectoryInfo? projectDir = new(AppContext.BaseDirectory);
+            while (projectDir is not null && !File.Exists(Path.Combine(projectDir.FullName, "FirstTests.csproj")))
+                projectDir = projectDir.Parent;
+
+            var thuMuc = Path.Combine(projectDir?.FullName ?? ctx.WorkDirectory, "screenshots");
             Directory.CreateDirectory(thuMuc);
 
             // Tên ca test do [TestCase] tự sinh chứa  " , ( )  -> KÝ TỰ CẤM trong tên file.
             // Không lọc là dính ArgumentException, che mất lỗi thật.
             var ten  = string.Join("_", ctx.Test.Name.Split(Path.GetInvalidFileNameChars()));
-            var path = Path.Combine(thuMuc, $"{ten}_{DateTime.Now:HHmmss}.png");
+            var path = Path.Combine(thuMuc, $"{ten}_{DateTime.Now:yyyyMMdd_HHmmss_fff}.png");
 
             ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(path);
             TestContext.AddTestAttachment(path);

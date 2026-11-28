@@ -1,4 +1,5 @@
 using System.Globalization;
+using FirstTests.Config;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -19,7 +20,7 @@ public class InventoryPage : BasePage
     /// </summary>
     public bool DaHienThi()
     {
-        var w = new WebDriverWait(driver, TimeSpan.FromSeconds(3));  // ngắn: ca nghịch nào cũng chờ
+        var w = new WebDriverWait(driver, TimeSpan.FromSeconds(ConfigReader.Load().TimeoutSeconds));
         try
         {
             return w.Until(d => d.FindElements(tieuDe).Count > 0    // FindElements: KHÔNG ném

@@ -3,10 +3,11 @@ using FirstTests.Pages;
 
 namespace FirstTests.Tests;
 
+[Category("Login")]
 public class LoginTests : BaseTest      // <- không còn [SetUp]/[TearDown]/new ChromeDriver()
 {
     [Test]
-	[Category("Login")]
+    [Category("Smoke")]
     public void DangNhap_DungTaiKhoan_ThanhCong()
     {
         var trangSP = new LoginPage(driver).DangNhap("standard_user", "secret_sauce");
@@ -15,7 +16,6 @@ public class LoginTests : BaseTest      // <- không còn [SetUp]/[TearDown]/new
     }
 
     [Test]
-	[Category("Smoke")]
     public void DangNhap_TaiKhoanBiKhoa_HienLoi()
     {
         var loginPage = new LoginPage(driver);
@@ -24,11 +24,20 @@ public class LoginTests : BaseTest      // <- không còn [SetUp]/[TearDown]/new
         Assert.That(loginPage.LayThongBaoLoi(), Does.Contain("locked out"));
     }
 
+    [Test]
+    [Category("Slow")]
+    public void DangNhap_PerformanceGlitch_ThanhCong()
+    {
+        var trangSP = new LoginPage(driver).DangNhap("performance_glitch_user", "secret_sauce");
+
+        Assert.That(trangSP.DaHienThi(), Is.True);
+    }
+
     // 1 hàm -> 4 ca test. KHÔNG thêm [Test] ở đây (sẽ sinh ca thừa bị lỗi).
     [TestCase("standard_user",   "secret_sauce", true)]
     [TestCase("locked_out_user", "secret_sauce", false)]
     [TestCase("problem_user",    "secret_sauce", true)]
-    [TestCase("khong_ton_tai",   "sai_mat_khau", true)]
+    [TestCase("khong_ton_tai",   "sai_mat_khau", false)]
     public void DangNhap_NhieuTaiKhoan(string tk, string mk, bool mongDoiThanhCong)
     {
         var trangSP = new LoginPage(driver).DangNhap(tk, mk);

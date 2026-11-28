@@ -4,16 +4,16 @@ namespace FirstTests.Config;
 
 public static class ConfigReader
 {
-    private static TestConfig? _cache;
+    private static readonly Lazy<TestConfig> _cache = new(LoadConfig);
 
-    public static TestConfig Load()
+    public static TestConfig Load() => _cache.Value;
+
+    private static TestConfig LoadConfig()
     {
-        if (_cache is not null) return _cache;          // đọc file 1 lần cho cả phiên
-
         var env = Environment.GetEnvironmentVariable("TEST_ENV");
 
         var builder = new ConfigurationBuilder()
-            // AppContext.BaseDirectory = bin/Debug/net8.0/ — luôn đúng.
+            // AppContext.BaseDirectory = bin/Debug/net10.0/ — luôn đúng.
             // KHÔNG dùng Directory.GetCurrentDirectory(): nó đổi tuỳ cách chạy.
             .SetBasePath(AppContext.BaseDirectory)
             .AddJsonFile("Config/appsettings.json", optional: false);
@@ -24,9 +24,8 @@ public static class ConfigReader
         // Cho phép ghi đè từ dòng lệnh / CI:  TEST_Browser=firefox dotnet test
         builder.AddEnvironmentVariables("TEST_");
 
-        _cache = builder.Build().Get<TestConfig>()
-                 ?? throw new InvalidOperationException(
-                        "Không đọc được appsettings.json — kiểm tra CopyToOutputDirectory.");
-        return _cache;
+        return builder.Build().Get<TestConfig>()
+               ?? throw new InvalidOperationException(
+                      "Không đọc được appsettings.json — kiểm tra CopyToOutputDirectory.");
     }
 }
