@@ -1,37 +1,26 @@
 using OpenQA.Selenium;
 
-namespace SauceDemo.Tests.Pages;
+namespace FirstTests.Pages;
 
 public class LoginPage : BasePage
 {
-    private static readonly By _username = By.Id("user-name");
-    private static readonly By _password = By.Id("password");
-    private static readonly By _loginBtn = By.Id("login-button");
-    private static readonly By _error = By.CssSelector("[data-test='error']");
+    // Locator private — file test KHÔNG thấy, KHÔNG cần biết
+    private readonly By oTaiKhoan = By.Id("user-name");
+    private readonly By oMatKhau  = By.Id("password");
+    private readonly By nutLogin  = By.Id("login-button");
+    private readonly By loi       = By.CssSelector("h3[data-test='error']");
 
-    public LoginPage(IWebDriver driver) : base(driver) { }
+    public LoginPage(IWebDriver d) : base(d) { }
 
-    public LoginPage Open(string url = "https://www.saucedemo.com/")
+    // Bài 4 có "public const string Url" — Bài 5 BỎ, vì URL đã về appsettings.json
+
+    public InventoryPage DangNhap(string tk, string mk)
     {
-        Driver.Navigate().GoToUrl(url);
-        return this;
+        var o1 = Tim(oTaiKhoan); o1.Clear(); o1.SendKeys(tk);
+        var o2 = Tim(oMatKhau);  o2.Clear(); o2.SendKeys(mk);
+        Tim(nutLogin).Click();
+        return new InventoryPage(driver);   // trả về TRANG TIẾP THEO
     }
 
-    public InventoryPage LoginAs(string user, string pass)
-    {
-        Type(_username, user);
-        Type(_password, pass);
-        Click(_loginBtn);
-        return new InventoryPage(Driver);
-    }
-
-    public LoginPage LoginExpectingError(string user, string pass)
-    {
-        Type(_username, user);
-        Type(_password, pass);
-        Click(_loginBtn);
-        return this;
-    }
-
-    public string GetErrorMessage() => GetText(_error);
+    public string LayThongBaoLoi() => Tim(loi).Text;
 }

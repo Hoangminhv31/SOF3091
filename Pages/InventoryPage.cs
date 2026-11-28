@@ -1,31 +1,48 @@
+using System.Globalization;
+using FirstTests.Config;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
-namespace SauceDemo.Tests.Pages;
+namespace FirstTests.Pages;
 
 public class InventoryPage : BasePage
 {
-    private static readonly By _title = By.ClassName("title");
-    private static readonly By _addBackpack = By.Id("add-to-cart-sauce-labs-backpack");
-    private static readonly By _cartBadge = By.ClassName("shopping_cart_badge");
-    private static readonly By _cartLink = By.ClassName("shopping_cart_link");
+    private readonly By tieuDe  = By.ClassName("title");
+    private readonly By sanPham = By.ClassName("inventory_item");
+    private readonly By gia     = By.ClassName("inventory_item_price");
+    private readonly By combo   = By.ClassName("product_sort_container");
 
-    public InventoryPage(IWebDriver driver) : base(driver) { }
+    public InventoryPage(IWebDriver d) : base(d) { }
 
-    public bool IsLoaded() => IsDisplayed(_title);
-
-    public InventoryPage AddBackpackToCart()
+    /// <summary>
+    /// Hàm trả về bool thì PHẢI trả lời được cả KHÔNG (slide 28).
+    /// Bản Bài 4 dùng Tim() -> ca nghịch chờ hết timeout rồi NÉM, Assert không chạy tới.
+    /// </summary>
+    public bool DaHienThi()
     {
-        Click(_addBackpack);
-        WaitForText(_cartBadge, "1");
-        return this;
+        var w = new WebDriverWait(driver, TimeSpan.FromSeconds(ConfigReader.Load().TimeoutSeconds));
+        try
+        {
+            return w.Until(d => d.FindElements(tieuDe).Count > 0    // FindElements: KHÔNG ném
+                                && d.FindElement(tieuDe).Text == "Products");
+        }
+        catch (WebDriverTimeoutException)
+        {
+            return false;   // không vào được = câu TRẢ LỜI, không phải sự cố
+        }
     }
 
-    public string GetCartCount() => GetText(_cartBadge);
+    public int SoSanPham() => driver.FindElements(sanPham).Count;
 
-    public CartPage GoToCart()
+    public InventoryPage SapXep(string value)
     {
-        Click(_cartLink);
-        WaitForUrlContains("/cart.html");
-        return new CartPage(Driver);
+        new SelectElement(Tim(combo)).SelectByValue(value);
+        return this;            // vẫn ở trang này -> trả về chính nó
     }
+
+    /// <summary>InvariantCulture BẮT BUỘC: máy vi-VN đọc "29.99" thành 2999 mà KHÔNG báo lỗi.</summary>
+    public List<decimal> LayDanhSachGia() =>
+        driver.FindElements(gia)
+              .Select(e => decimal.Parse(e.Text.Replace("$", ""), CultureInfo.InvariantCulture))
+              .ToList();
 }

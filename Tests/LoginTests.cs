@@ -1,25 +1,47 @@
-using NUnit.Framework;
-using SauceDemo.Tests.Pages;
+using FirstTests.Core;
+using FirstTests.Pages;
 
-namespace SauceDemo.Tests.Tests;
+namespace FirstTests.Tests;
 
-public class LoginTests : BaseTest
+[Category("Login")]
+public class LoginTests : BaseTest      // <- không còn [SetUp]/[TearDown]/new ChromeDriver()
 {
-    [TestCaseSource(typeof(LoginTestData), nameof(LoginTestData.GetCases))]
-    public void Login_DataDriven(string username, string password,
-        bool shouldLogin, string expectedError)
+    [Test]
+    [Category("Smoke")]
+    public void DangNhap_DungTaiKhoan_ThanhCong()
     {
-        var loginPage = new LoginPage(Driver).Open(Settings.Url);
+        var trangSP = new LoginPage(driver).DangNhap("standard_user", "secret_sauce");
 
-        if (shouldLogin)
-        {
-            var inventory = loginPage.LoginAs(username, password);
-            Assert.That(inventory.IsLoaded(), Is.True);
-        }
-        else
-        {
-            var error = loginPage.LoginExpectingError(username, password).GetErrorMessage();
-            Assert.That(error, Does.Contain(expectedError));
-        }
+        Assert.That(trangSP.DaHienThi(), Is.True);
+    }
+
+    [Test]
+    public void DangNhap_TaiKhoanBiKhoa_HienLoi()
+    {
+        var loginPage = new LoginPage(driver);
+        loginPage.DangNhap("locked_out_user", "secret_sauce");
+
+        Assert.That(loginPage.LayThongBaoLoi(), Does.Contain("locked out"));
+    }
+
+    [Test]
+    [Category("Slow")]
+    public void DangNhap_PerformanceGlitch_ThanhCong()
+    {
+        var trangSP = new LoginPage(driver).DangNhap("performance_glitch_user", "secret_sauce");
+
+        Assert.That(trangSP.DaHienThi(), Is.True);
+    }
+
+    // 1 hàm -> 4 ca test. KHÔNG thêm [Test] ở đây (sẽ sinh ca thừa bị lỗi).
+    [TestCase("standard_user",   "secret_sauce", true)]
+    [TestCase("locked_out_user", "secret_sauce", false)]
+    [TestCase("problem_user",    "secret_sauce", true)]
+    [TestCase("khong_ton_tai",   "sai_mat_khau", false)]
+    public void DangNhap_NhieuTaiKhoan(string tk, string mk, bool mongDoiThanhCong)
+    {
+        var trangSP = new LoginPage(driver).DangNhap(tk, mk);
+
+        Assert.That(trangSP.DaHienThi(), Is.EqualTo(mongDoiThanhCong));   // kỳ vọng cũng là DỮ LIỆU
     }
 }
